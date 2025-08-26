@@ -9,22 +9,13 @@ CORS(app)
 model = joblib.load('model_dt.pkl')
 
 def kategorikan_performa(score):
-    if score >= 75:
-        return "Sangat Baik"
-    elif score >= 70:
-        return "Baik"
-    elif score >= 65:
-        return "Cukup Baik"
+    if score >= 70:
+        return "Sangat Direkomendasikan"
     elif score >= 60:
-        return "Cukup"
-    elif score >= 55:
-        return "Kurang Baik"
-    elif score >= 50:
-        return "Kurang"
-    elif score >= 45:
-        return "Sangat Kurang"
+        return "Direkomendasikan"
     else:
-        return "Sangat Buruk"
+        return "Tidak Direkomendasikan"
+
 
 @app.route("/api/predict", methods=["POST"])
 def predict():
